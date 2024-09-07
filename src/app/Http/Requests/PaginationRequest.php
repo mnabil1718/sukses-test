@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Route;
 
-class ShowAuthorRequest extends FormRequest
+class PaginationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,15 +22,8 @@ class ShowAuthorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'numeric', 'min:1']
+            'page_size' => ['numeric', 'min:1', 'max:100'],
+            'page' => ['numeric', 'min:1', 'max:1000000'],
         ];
-    }
-
-    /**
-     * Prepare the data for validation.
-     */
-    protected function prepareForValidation()
-    {
-        $this->merge(['id' => $this->route('id')]);
     }
 }

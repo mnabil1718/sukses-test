@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $this->app->register(AuthorServiceProvider::class);
+        $this->app->register(BookServiceProvider::class);
     }
 
     /**
