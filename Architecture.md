@@ -35,3 +35,13 @@ return Cache::tags([$cacheTag])->remember($cacheKey, $ttl, $callback);
 ### Pagination
 
 On get all requests OFFSET paginations are employed so data fetching is batched into chunks
+
+# Scaling
+
+on millions of rows theres optimizations to further reduce latency & load time.
+
+- INDEXES on frequently queried columns.
+- CURSOR pagination instead of OFFSET to employ constant time lookup.
+- DB partition.
+- Sharding to distribute DB across servers and instances.
+- Connection pooling
