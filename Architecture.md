@@ -40,8 +40,8 @@ On get all requests OFFSET paginations are employed so data fetching is batched 
 
 on millions of rows theres optimizations to further reduce latency & load time.
 
-- INDEXES on frequently queried columns.
-- CURSOR pagination instead of OFFSET to employ constant time lookup.
+- INDEXES on frequently queried columns. in this case like author_id.
+- CURSOR pagination instead of OFFSET to employ constant time lookup. But we will lose jumping page flexibility to arbitrary pages.
 - DB partition.
 - Sharding to distribute DB across servers and instances.
 - Connection pooling
