@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 
 class AuthorApiTest extends TestCase
@@ -18,6 +19,7 @@ class AuthorApiTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        Cache::flush();
     }
 
     public function test_index()

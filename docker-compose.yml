@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   nginx:
     image: nginx:alpine
@@ -25,17 +23,6 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: sukses
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgAdmin
-    ports:
-      - "5050:80"
-    depends_on:
-      - db
-    environment:
-      PGADMIN_DEFAULT_EMAIL: mnabil1718@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: password
-
   app:
     container_name: sukses
     build:
@@ -44,5 +31,11 @@ services:
     volumes:
       - ./src:/var/www
     ports:
-      - "8000:8000"
+      - "9000:9000" # default php-fpm port
     working_dir: /var/www
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
