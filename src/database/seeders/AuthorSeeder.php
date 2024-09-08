@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,12 +15,6 @@ class AuthorSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('authors')->insert([
-            'name' => 'Bruce Wayne',
-            'bio' => 'an author by day, vigilante by night',
-            'birth_date' => now(),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        Author::factory(12)->hasBooks(3)->create();
     }
 }
