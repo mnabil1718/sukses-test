@@ -12,7 +12,7 @@
 git clone https://github.com/mnabil1718/sukses-test.git
 ```
 
-change directory into `sukses-test`
+change directory into `sukses-test`. This depends on where your root repo folder is.
 
 ```
 cd ./sukses-test
@@ -41,6 +41,10 @@ http://localhost:8080/api/v1/authors
 Still inside `sukses-test` folder, run
 
 ```
+cd ./sukses-test
+```
+
+```
 docker-compose exec app php artisan test
 ```
 
@@ -57,3 +61,15 @@ detail explanation is provided at `Architecture.md`
 ## 1 Million Row
 
 Performance optimization once the DB contains millions of row is at `Scaling` section in `Architecture.md`
+
+## Deactivate
+
+To shutdown and deactivate dev environment, cd into `sukses-test`
+
+```
+cd ./sukses-test
+```
+
+```
+docker-compose down
+```
