@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Building and setting up images..."
 docker-compose up -d --build
 
